@@ -1,10 +1,5 @@
-from dotenv import load_dotenv
-import os
 from pathlib import Path
 from scraper import unzip_workbooks, extract_docs
-
-env_path = os.path.join(os.path.dirname(__file__), ".env")
-load_dotenv(env_path)
 
 INPUT_DIR = Path("sheets")
 UNZIPPED_DIR = Path("unzipped")
