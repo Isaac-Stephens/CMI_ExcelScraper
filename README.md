@@ -41,35 +41,37 @@ PRE: Install Python 3 and Git
 1) Clone and navigate to this repository.
 
 Open **PowerShell** and run:
-``` bash
+```cmd
 git clone https://github.com/Isaac-Stephens/CMI_ExcelScraper.git
 cd CMI_ExcelScraper
 ```
 
 2) Create a venv environment for python and install dependencies
 
-```bash
+```cmd
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
+pip install pathlib
 ```
 > If PowerShell prevents this activation, you may need to allow locally created scripts:
-```bash
+```cmd
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 > Then activate the environment again:
-```bash
+```cmd
 .\.venv\Scripts\Activate.ps1
+pip install pathlib
 ```
 
 3) Create the input folder and upload your Excel sheets here.
-```bash
+```cmd
 mkdir sheets
 ```
 Place all the `.xlsx` files you want to process insisde the `sheets` folder.
 
 4) Run the program
-```bash
+```cmd
 python3 main.py
 ```
 
