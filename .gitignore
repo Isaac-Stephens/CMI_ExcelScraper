@@ -1,6 +1,7 @@
 sheets/*
 unzipped/*
 extracted_docs/*
+organized_docs/*
 # GITHUB DEFAULT PYTHON .GITIGNORE
 # Byte-compiled / optimized / DLL files
 __pycache__/

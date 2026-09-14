@@ -46,6 +46,7 @@ def extract_docs(input_dir: Path, output_dir: Path):
 
             shutil.move(word_file, destination)
 
+# recursively searches the input directorie for all .xlsx
 def unzip_workbooks_recursive(input_dir: Path, output_dir: Path):
     output_dir.mkdir(exist_ok=True)
 
@@ -108,3 +109,39 @@ def unzip_workbooks_recursive(input_dir: Path, output_dir: Path):
 
         with ZipFile(workbook, "r") as zip_file:
             zip_file.extractall(workbook_output)
+
+# organizes all extracted docs by Year##/Q#/FA#/*.docx
+def organize_docs(input_dir: Path, output_dir: Path):
+    output_dir.mkdir(parents=True, exist_ok=True)
+
+    for doc in input_dir.rglob("*.docx"):
+
+        match = re.match(
+            r"^"
+            r".+?_"              # Name
+            r"(\d{1,3})-"        # FA #
+            r"\d{1,3}-"          # ID1
+            r"\d{1,3}_"          # ID2
+            r"YR(\d{2})_"        # Year
+            r"Q(\d+)(?:\(\d+\))?_",          # Quarter
+            doc.stem
+        )
+
+        if not match:
+            print(f"Invalid document name {doc}")
+            continue
+
+        fa_id, year, quarter = match.groups()
+
+        destination = (
+            output_dir
+            / f"Year{year}"
+            / f"Q{quarter}"
+            / f"FA{fa_id}"
+        )
+
+        destination.mkdir(parents=True, exist_ok=True)
+
+        output_file = destination / doc.name
+
+        shutil.copy2(doc, output_file)
