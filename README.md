@@ -24,7 +24,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip3 install pathlib
 ```
-3) Create input directory and upload your sheets here.
+3) Create input directory and upload your sheets here. You can upload them organized into directories or by themselves, I don't care lol.
 ```bash
 mkdir sheets
 ```
@@ -32,7 +32,7 @@ mkdir sheets
 ```bash
 python3 main.py
 ```
-5) All extracted sheets should be in a directory called "extracted_docs"!
+5) All extracted sheets should be in a directory called "extracted_docs" and an organized directory called "organized_docs"!
 
 #### Windows
 
@@ -64,7 +64,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 pip install pathlib
 ```
 
-3) Create the input folder and upload your Excel sheets here.
+3) Create the input folder and upload your Excel sheets here. You can upload them organized into folders or by themselves, I don't care lol.
 ```cmd
 mkdir sheets
 ```
@@ -75,5 +75,5 @@ Place all the `.xlsx` files you want to process insisde the `sheets` folder.
 python3 main.py
 ```
 
-5) All extracted sheets should be in a folder called "extracted_docs"!
+5) All extracted sheets should be in a folder called "extracted_docs" and an organized directory called "organized_docs"!
 
